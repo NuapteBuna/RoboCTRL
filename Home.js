@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
   FlatList,
   Switch,
   TouchableOpacity,
@@ -11,9 +12,8 @@ import {
 } from "react-native";
 var _ = require("lodash");
 import BluetoothSerial from "react-native-bluetooth-serial";
-import { Button } from "react-native-paper";
 
-export default class App extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,11 +129,9 @@ export default class App extends Component {
         </View>
         <Button
           onPress={this.discoverAvailableDevices.bind(this)}
-          mode="contained"
-          style={styles.toolbarButton}
-        >
-          Scan
-        </Button>
+          title="Scan for Devices"
+          color="#841584"
+        />
         <FlatList
           style={{ flex: 1 }}
           data={this.state.devices}
@@ -142,11 +140,9 @@ export default class App extends Component {
         />
         <Button
           onPress={this.toggleSwitch.bind(this)}
-          mode="elevated"
-          style={styles.switchButton}
-        >
-          Switch(On/Off)
-        </Button>
+          title="Switch(On/Off)"
+          color="#841584"
+        />
       </View>
     );
   }
@@ -157,19 +153,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F5FCFF",
   },
-  switchButton: {
-    width: 160,
-    alignContent: "center",
-    alignSelf: "center",
-    marginBottom: 16,
-  },
   toolbar: {
     paddingTop: 30,
     paddingBottom: 30,
     flexDirection: "row",
   },
   toolbarButton: {
-    width: 80,
+    width: 50,
     marginTop: 8,
   },
   toolbarTitle: {
